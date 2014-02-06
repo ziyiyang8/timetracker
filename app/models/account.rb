@@ -6,6 +6,11 @@ class Account < ActiveRecord::Base
 
 	before_validation :downcase_subdomain
 
+	belongs_to :owner, class_name: 'User'
+
+	accepts_nested_attributes_for :owner
+	validates :owner, presence: true
+
 	private
 		def downcase_subdomain
 			self.subdomain = subdomain.try(:downcase)

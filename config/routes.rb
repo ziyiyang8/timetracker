@@ -1,4 +1,5 @@
 Timetracker::Application.routes.draw do
+  devise_for :users
     root 'welcome#index'
     resources :accounts
   # The priority is based upon order of creation: first created -> highest priority.
